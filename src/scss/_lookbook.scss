@@ -1,0 +1,92 @@
+.lookbook {
+    padding-bottom: 50px;
+    background: $opalColor;
+    opacity: 0;
+    visibility: hidden;
+    transition: 1.5s ease;
+    &__top {
+        display: flex;
+        max-height: 770px;
+        justify-content: space-between;
+    }
+
+    &__top--content {
+        margin: 50px 20px;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    &__title {
+        margin-bottom: 410px;
+    }
+
+    &__text {
+        max-width: 415px;
+    }
+
+    &__top--item {
+        padding: 10px 20px;
+        justify-content: space-between;
+        &:first-child{
+            margin-top: 20px;
+        }
+    }
+
+    &__top--lookbook {
+        margin: 20px;
+    }
+
+    &__top--image {
+        padding: 20px 20px 85px 20px;
+        img{
+            margin-bottom: 10px;
+        }
+    }
+
+    &__top--body {
+        justify-content: space-between;
+    }
+    &__link{
+        @include Bg($whiteColor);
+        @include Color($blackColor);
+    }
+    &.scroll--active{
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@media(max-width: 768px){
+    .lookbook{
+        &__top{
+            flex-direction: column;
+            max-height: max-content;
+        }
+        &__title{
+            margin-bottom: 50px;
+        }
+        &__top--item{
+            &:first-child{
+                display: none;
+            }
+        }
+        &__top--right{
+            display: flex;
+            flex-direction: column-reverse;
+            &::after{
+                display: none;
+            }
+        }
+        &__top--image{
+            img{
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media(max-width: 360px){
+    .lookbook__top--item{
+        padding: 10px 0;
+    }
+}

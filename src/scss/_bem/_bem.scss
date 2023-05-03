@@ -1,0 +1,274 @@
+// ! transition
+// animation Scale - 1s, hover effect - 0.45s
+
+
+// ? Effects 
+// ? задаём элементам наведение 
+@mixin Bg($background: $blackColor) {
+    transition: 0.45s ease;
+    &:hover{
+        background: $background;
+    }
+}
+
+@mixin Color($color: $blackColor) {
+    transition: 0.45s ease;
+    &:hover{
+        color: $color;
+    }
+}
+
+// ? strik
+@keyframes strik {
+    0% {
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+
+
+
+// ? width
+.strik{
+    position: relative;
+    // ? общие стили 
+    &::after,
+    &::before{
+        display: none;
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: $oysterColor;
+        animation: strik 5s ease;
+    }
+    &__top{
+        &::after{
+            top: 0;
+            left: 0;
+            display: block;
+        }
+    }
+    &__bottom{
+        &::before{
+            left: 0;
+            bottom: 0;
+            display: block;
+        }
+    }
+}
+// ? height
+.strip{
+    position: relative;
+    &::after,
+    &::before{
+        display: none;
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        background: $oysterColor;
+        animation: strik 5s ease;
+    }
+    &__left{
+        &::after{
+            top: 0;
+            left: 0;
+            display: block;
+        }
+    }
+    &__right{
+        &::before{
+            top: 0;
+            right: 0;
+            display: block;
+        }
+    }
+}
+// ? vertical signature 
+// ? все секции с сигнатурой имеют ограниченную высоту
+.signature{
+    height: 100%;
+    padding: 18px 18px;
+    align-self: flex-end;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    @media(max-width: 1024px){
+        display: none;
+    }
+}
+// ? ul, article
+
+.list {
+    display: grid;
+    padding: 24px 0;
+    column-gap: 30px;
+    grid-template-columns: repeat(4, minmax(150px, 331px));
+    @media(max-width: 768px){
+        padding: 0;
+        column-gap: 0;
+        justify-content: center;
+        grid-template-columns: repeat(2, minmax(150px, 331px));
+        &::before{
+            left: 50%;
+            bottom: 0;
+            display: block;
+        }
+    }
+    @media(max-width: 400px){
+        grid-template-columns: minmax(150px, 331px);
+        &::before{
+            display: none;
+        }
+    }
+    &__item {
+        padding: 8px;
+        &::before{
+            display: none;
+        }
+        @media(max-width: 768px){
+            &::before{
+                display: block;
+            }
+            &:nth-last-child(2)::before{
+                display: none;
+            }
+        }
+        @media(max-width: 400px){
+            &:nth-last-child(2)::before{
+                display: block;
+            }
+        }
+    }
+
+}
+.card {
+
+    &__image {
+        margin-bottom: 10px;
+    }
+
+    &__body {
+        justify-content: space-between;
+    }
+}
+
+// ? title
+.title{
+    font-family: 'Reckless Neue';
+    letter-spacing: -0.01em;
+    &__h1{
+        font-size: $fs96;
+        line-height: 90%;
+    }
+    &__h2{
+        font-size: $fs72;
+        line-height: 100%;
+    }
+    &__h3{
+        font-size: $fs56;
+        line-height: 64px;
+    }
+    &__h4{
+        font-size: $fs36;
+        line-height: 42px;
+    }
+    &__h5{
+        font-size: $fs24;
+        line-height: 28px;
+    }
+}
+
+// ? text
+.text{
+    &__small{
+        font-size: $fs12;
+        line-height: 14px;
+        letter-spacing: 0.1em;
+    }
+    &__regular{
+        font-size: $fs15;
+        line-height: 19px;
+    }
+}
+
+// ? btn
+.btn{
+    padding: 8px 36px;
+    border-radius: 8px;
+    // ! hover effects, active effects
+    @include Bg($smokeColor);
+    @include Color($whiteColor);
+}
+
+
+// ? brick(текст по середине который)
+.brick{
+    display: block;
+    text-align: center;
+    padding: 24px 0;
+}
+
+// ? color, bg
+.color{
+    &__white{
+        color: $whiteColor;
+    }
+    &__white--like{
+        color: #FCFDFD;
+    }
+    &__oyster{
+        color: $oysterColor;
+    }
+    &__cloudy{
+        color: $cloudyColor;
+    }
+    &__stormy{
+        color: $stormyColor;
+    }
+    &__opal{
+        color: $opalColor;
+    }
+    &__linean{
+        color: $linenColor;
+    }
+    &__black{
+        color: $blackColor;
+    }
+}
+
+.bg{
+    &__white{
+        background: $whiteColor;
+    }
+    &__white--like{
+        background: #FCFDFD;
+    }
+    &__oyster{
+        background: $oysterColor;
+    }
+    &__cloudy{
+        background: $cloudyColor;
+    }
+    &__stormy{
+        background: $stormyColor;
+    }
+    &__opal{
+        background: $opalColor;
+    }
+    &__linean{
+        background: $linenColor;
+    }
+    &__black{
+        background: $blackColor;
+    }
+}
+
+// ? flex, align-items-center
+.flex{
+    display: flex;
+    align-items: center;
+}

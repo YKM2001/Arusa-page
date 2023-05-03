@@ -1,0 +1,26 @@
+.hero{
+    height: 100vh;
+    margin-bottom: 30px;
+    background: url('../images/hero-bg.jpg') no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    &__container{
+        height: 100%;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+    &__title{
+        max-width: 820px;
+        margin-bottom: 48px;
+        @media(max-width: 768px){
+            font-size: $fs72;
+            line-height: 100%;
+        }
+        @media(max-width: 475px){
+            font-size: $fs56;
+            line-height: 64px;
+        }
+    }
+}

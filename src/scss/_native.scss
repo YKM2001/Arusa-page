@@ -1,0 +1,46 @@
+.native {
+    display: flex;
+    column-gap: 40px;
+    background: $opalColor;
+    justify-content: space-between;
+    opacity: 0;
+    visibility: hidden;
+    transition: 1.5s ease;
+    &__left {
+        padding: 20px 0;
+    }
+    &__left,
+    &__right{
+        width: 100%;
+    }
+    &__title {
+        margin-bottom: 48px;
+    }
+
+    &__left--content{
+        max-width: 405px;
+        margin: 0 auto;
+    }
+
+    &__text {
+        margin-bottom: 24px;
+    }
+    &.scroll--active{
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@media(max-width: 767px) {
+    .native{
+        padding: 0 20px;
+        flex-direction: column-reverse;
+        &__right{
+            padding: 20px 0;
+            text-align: center;
+        }
+        &__left--content{
+            max-width: max-content;
+        }
+    }
+}

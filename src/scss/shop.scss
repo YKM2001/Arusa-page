@@ -1,0 +1,43 @@
+@use "sass:math";
+@import "_variables";
+@import "_mixins.scss";
+@import "_fonts";
+@import "_null";
+@import "_bem/_bem";
+
+body {
+    &.lock {
+        overflow: hidden;
+    }
+}
+html,body{
+    scroll-behavior: smooth;
+}
+
+.wrapper {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    >main {
+        z-index: 10;
+        flex: 1 1 auto;
+        position: relative;
+    }
+    >* {
+        min-width: 0;
+    }
+}
+
+// ? Container
+.container,
+[class*="__container"] {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 rem(15);
+}
+
+@import "_header2";
+
+@import "_footer";

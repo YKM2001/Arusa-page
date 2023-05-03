@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Arusa</title>
+    <!-- ? Style -->
+    <link rel="stylesheet" href="css/shop.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        @@include('_header.html')  
+        <main class="main">
+            <section class="shop">
+                <h1 class="shop__title title title__h1 brick strik__bottom strik__top">All</h1>
+                <div class="shop__container">
+                    <div class="shop__top">
+                        <span class="products text__regular">21 PRODUCTS</span>
+                        <label class="shop__synergy">
+                            <input type="search" class="search">
+                        </label>
+                    </div>
+                    <div class="sidebar">
+                        <div class="dropdown">
+                            <p class="text__regular brick strik strik__bottom strik__top">FILTERS</p>
+                            <p class="text__regular">DECORS</p>
+                            <p class="text__regular">CERAMICS</p>
+                            <p class="text__regular">CHAIRS</p>
+                            <p class="text__regular">LAMP</p>
+                        </div>
+                        <div class="dropdown">
+                            <p class="text__regular brick strik strik__bottom strik__top">FILTERS</p>
+                            <p class="text__regular">PRICE: LOW TO HIGH</p>
+                            <p class="text__regular">PRICE: HIGH TO LOW</p>
+                            <p class="text__regular">A-Z</p>
+                            <p class="text__regular">Z-A</p>
+                        </div>
+                    </div>
+                    <div class="content"></div>
+                </div>
+            </section>
+        </main>
+        @@include('_footer.html') 
+    </div>
+    <!-- ? Scripts -->
+    <script src="./scripts/script.js"></script>
+</body>
+
+</html>
+
+

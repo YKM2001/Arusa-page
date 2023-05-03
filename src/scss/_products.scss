@@ -1,0 +1,63 @@
+.products{
+    height: 100vh;
+    padding-top: 62px;
+    &__container{
+        position: relative;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+    &__top{
+        display: flex;
+        padding: 60px 0 20px 0;
+        justify-content: space-between;
+    }
+}
+
+.dropdown{
+    row-gap: 15px;
+    display: flex;
+    margin-bottom: 15px;
+    flex-direction: column;
+    p{
+        cursor: pointer;
+        text-align: left;
+    }
+    .sort{
+        font-weight: 600;
+    }
+}
+
+
+.submit{
+    &__submit{
+
+    }
+}
+
+
+
+
+.checkbox{
+    &__checked{
+        font-weight: 600;
+    }   
+}
+
+
+
+
+
+
+input[type="checkbox"]{
+    display: none;
+    width: 100%;
+}
+
+input, button{
+    border: none;
+    background: none;
+}
+input:focus{
+    outline: none;
+}

@@ -1,0 +1,337 @@
+.header {
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    height: 62px;
+    transition: 0.6s ease;
+    &__container {
+        position: relative;
+        height: 62px;
+        padding-top: 16px;
+    }
+
+    &__visible {
+        justify-content: space-between;
+    }
+
+    &__burger {
+        column-gap: 10px;
+    }
+
+    &__icon {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        display: inline-block;
+        span{
+            position: relative;
+            width: 30px;
+            height: 1px;
+            display: inline-block;
+            background: $blackColor;
+            &::after,
+            &::before{
+                content: "";
+                position: absolute;
+                width: 30px;
+                height: 1px;
+                background: $blackColor;
+            }
+            &::after{
+                top: 5px;
+            }
+            &::before{
+                top: -5px;
+            }
+        }
+    }
+
+    &__logo {
+        svg{
+            fill: $blackColor;
+        }
+    }
+
+    &__hidden {
+        top: 62px;
+        transition: 1s ease;
+        transform: translate(0, -2000px);
+        .hidden__container{
+            display: flex;
+            column-gap: 200px;
+        }
+    }
+    &__menu,
+    &__welcome{
+        width: 100%;
+    }
+    &__menu {
+        display: flex;
+        column-gap: 80px;
+        justify-content: space-between;
+    }
+
+
+    &__item {
+        &:not(:last-child){
+            margin-bottom: 10px;
+        }
+    }
+
+    &__link{
+        &:hover::after{
+            bottom: -5px;
+            display: block;
+            background: $opalColor;
+        }
+    }
+
+    &__welcome {
+        position: relative;
+    }
+
+    &__welcome--image {
+        img{
+            width: 100%;
+            max-height: 350px;
+            object-fit: cover;
+        }
+    }
+
+    &__welcome--body {
+        left: 25px;
+        bottom: 25px;
+        position: absolute;
+    }
+    // ? header with scroll
+    &__scroll--active{
+        background: $whiteColor;
+        .header__burger
+        {
+            .header__icon{
+                span{
+                    background: $blackColor;
+                    &::after,
+                    &::before{
+                        background: $blackColor;
+                    }
+                }
+            }
+            span{
+                color: $blackColor;
+            }
+        }
+        
+        .header__logo{
+            svg{
+                fill: $blackColor;
+            }
+        }
+
+        .bag__text{
+            color: $blackColor;
+        }
+
+    }
+    // ? header__active--burger
+    &__active--burger{
+
+        background: $whiteColor;
+
+        .header__burger{
+            .header__icon{
+                span{
+                    background: $blackColor;
+                    &::after,
+                    &::before{
+                        background: $blackColor;
+                    }
+                }
+            }
+            span{
+                color: $blackColor;
+            }
+        }
+
+        .header__logo{
+            svg{
+                fill: $blackColor;
+            }
+        }
+
+        .bag__text{
+            color: $blackColor;
+        }
+
+        .header__menu{
+            padding: 40px 0;
+            justify-content: space-around;
+            @media(max-width:560px){
+                row-gap: 30px;
+                flex-direction: column;
+            }
+        }
+
+        .header__hidden{
+            position: absolute;
+            left: 0;
+            right: 0;
+            background: white;
+            transform: translate(0, 0);
+        }   
+        .bag__modale{
+            display: none;
+        }
+
+    }
+}
+
+// ? modal 
+
+.bag {
+    &__modale {
+        display: none;
+        top: 62px;
+        right: 16px;
+        width: 500px;
+        row-gap: 25px;
+        padding: 20px 40px;
+        position: absolute;
+        flex-direction: column;
+    }
+    
+    &__text{
+        cursor: pointer;
+        column-gap: 10px;
+        span{
+            padding: 4px 8px;
+            border-radius: 100%;
+        }
+    }
+
+    &__list{
+        display: flex;
+        row-gap: 25px;
+        flex-direction: column;
+    }
+
+    &__item--card {
+        display: flex;
+        column-gap: 20px; 
+        justify-content: space-between;
+    }
+
+    &__item--image {
+        img{
+            max-width: 150px;
+            border-radius: 8px;
+            border: 1px solid $oysterColor;
+        }
+    }
+
+    &__item--info,
+    &__item--count {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__item--count{
+        align-items: flex-end;
+    }
+
+    &__item--del {
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+        border-radius: 100%;
+        span{
+            width: 20px;
+            height: 1px;
+            position: relative;
+            display: inline-block;
+            &:first-child{
+                left: 6px;
+                transform: rotate(45deg);
+            }
+            &:last-child{
+                right: 6px;
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+    &__count {
+        border-radius: 8px;
+        border: 1px solid $oysterColor;
+        button{
+            width: 40px;
+        }
+    }
+
+    &__price {
+        padding: 8px 0;
+        justify-content: space-between;
+        &::after{
+            top: 0;
+            display: block;
+        }
+        &::before{
+            bottom: 0;
+            display: block;
+        }
+    }
+
+    &__change {
+        column-gap: 10px;
+        justify-content: space-between;
+        >*{
+            padding: 8px 22px;
+            border: 1px solid $oysterColor;
+        }
+    }
+    
+    // ? open-modal 
+    &__open{
+        display: flex;
+    }
+}
+
+// ? modal
+@media(max-width: 532px){
+    .bag__modale{
+        left: 0;
+        right: 0;
+        width: auto;
+        padding: 20px;
+    }
+    .bag__change{
+        row-gap: 15px;
+        flex-wrap: wrap;
+        text-align: center;
+        >*{
+            width: 100%;
+        }
+    }
+}
+@media(max-width: 456px){
+    .bag__item--image{
+        img{
+            max-width: 100%;
+        }
+    }
+    .bag__item--del{
+        span{
+            &:last-child{
+                right: 7px;
+            }
+        }
+    }
+}
+
+@media(max-width: 1040px){
+    .header__welcome{
+        display: none;
+    }
+}
